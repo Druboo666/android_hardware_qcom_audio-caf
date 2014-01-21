@@ -1,5 +1,7 @@
 AUDIO_HW_ROOT := $(call my-dir)
 
+LOCAL_CFLAGS += -fno-strict-aliasing -Wno-unknown-warning-option
+
 ifeq ($(strip $(BOARD_USES_ALSA_AUDIO)),true)
     include $(AUDIO_HW_ROOT)/alsa_sound/Android.mk
     include $(AUDIO_HW_ROOT)/libalsa-intf/Android.mk

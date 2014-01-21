@@ -149,7 +149,7 @@ include $(CLEAR_VARS)
 
 LOCAL_ARM_MODE := arm
 
-LOCAL_CFLAGS += $(common_cflags)
+LOCAL_CFLAGS += $(common_cflags) -fno-strict-aliasing
 
 LOCAL_SRC_FILES := \
   AudioHardwareALSA.cpp         \
@@ -187,7 +187,7 @@ else
 endif
 
 ifneq ($(BOARD_AUDIO_AMPLIFIER),)
-LOCAL_CFLAGS += -DUSES_AUDIO_AMPLIFIER
+LOCAL_CFLAGS += -DUSES_AUDIO_AMPLIFIER -fno-strict-aliasing
 LOCAL_SHARED_LIBRARIES += libaudioamp
 LOCAL_C_INCLUDES += $(BOARD_AUDIO_AMPLIFIER)
 endif
@@ -223,7 +223,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS += $(common_cflags)
+LOCAL_CFLAGS += $(common_cflags) -fno-strict-aliasing
 
 LOCAL_SRC_FILES := \
     audio_policy_hal.cpp \
